@@ -16,7 +16,7 @@ namespace Accounting.BLL.Configurations
             CreateMap<Employee, GetAllEmployeeViewModel>()
                 .ForMember(s => s.Name,
                 opt => opt.MapFrom(w => w.FirstName + " " + w.LastName))
-                .ForMember(s => s.PositionName, opt => opt.MapFrom(w => w.Positions.LastOrDefault().Position.Name));
+                .ForMember(s => s.PositionName, opt => opt.MapFrom(w => w.Positions.FirstOrDefault().Position.Name));
             CreateMap<Employee, GetEmployeeDetailsViewModel>();
             CreateMap<CreateEmployeeViewModel, Employee>();
             CreateMap<CreatePositionViewModel, Position>();

@@ -1,0 +1,3 @@
+go to solution -> start local server on port - 44352 (or change port on apiUrl in Client/accounting-client/src/app/environments/environment.ts to you port)
+open Client -> accounting-client in visual studio code/webstorm -> type "ng serve" (port: 4200)
+go to http://localhost:4200/ -> enjoy

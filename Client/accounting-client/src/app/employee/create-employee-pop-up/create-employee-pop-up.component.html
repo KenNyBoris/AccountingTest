@@ -1,0 +1,56 @@
+<div class="create-employee-wrapper w-100 text-center">
+    <h3>New employee</h3>
+    <form  [formGroup]="createEmployeeForm" (ngSubmit)="createEmployee()">
+        <ng-container>
+                    <mat-form-field>
+                        <mat-label>First name</mat-label>
+                        <input  matInput required formControlName="firstName">
+                      </mat-form-field>
+                    </ng-container>
+                    <ng-container >
+                        <mat-form-field class="ml-4">
+                            <mat-label>Last name</mat-label>
+                            <input matInput required formControlName="lastName">
+                          </mat-form-field>
+                    </ng-container>
+                    <ng-container>
+                        <mat-form-field *ngIf="positions.length" appearance="fill">
+                            <mat-label>Position</mat-label>
+                            <mat-select formControlName="position">
+                              <mat-option *ngFor="let position of positions"  [value]="position.id">
+                                {{position.name}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </ng-container>
+                    
+     <ng-container >
+        <mat-form-field class="ml-4">
+            <mat-label>Salary</mat-label>
+            <input matInput required formControlName="salary"  type="number" >
+          </mat-form-field>
+     </ng-container>
+     <ng-container >
+
+     <mat-form-field appearance="fill">
+        <mat-label>Appointment date</mat-label>
+        <input matInput [matDatepicker]="appointmentpicker" formControlName="appointmentDate">
+        <mat-datepicker-toggle matSuffix [for]="appointmentpicker"></mat-datepicker-toggle>
+        <mat-datepicker #appointmentpicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="ml-4" appearance="fill">
+        <mat-label>Dismissal date</mat-label>
+        <input matInput [matDatepicker]="dismissalpicker" formControlName="dismissalDate">
+        <mat-datepicker-toggle matSuffix [for]="dismissalpicker"></mat-datepicker-toggle>
+        <mat-datepicker #dismissalpicker></mat-datepicker>
+      </mat-form-field>
+     </ng-container>
+     <div class="d-flex justify-content-around ">
+      <button color="primary" type="submit" mat-button mat-raised-button>Ok</button>
+      <button mat-button color="warn" (click)="cancel()">Cancel</button>
+  </div>
+    </form>
+    
+    
+</div>

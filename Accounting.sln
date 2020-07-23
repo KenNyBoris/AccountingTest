@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{D0E3936A-3F39-4E3A-B606-DF7FFB0911F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.BLL", "Accounting.BLL\Accounting.BLL.csproj", "{80F216F1-9994-449D-8623-E5F76E881AA8}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "accounting-client", "Client\accounting-client\", "{2EB116ED-25F1-4047-BFC0-893CED036913}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53555"
+		Debug.AspNetCompiler.PhysicalPath = "Client\accounting-client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53555\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53555"
+		Release.AspNetCompiler.PhysicalPath = "Client\accounting-client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53555\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53555"
+		SlnRelativePath = "Client\accounting-client\"
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Domain", "Accounting.Domain\Accounting.Domain.csproj", "{88E103A1-8C9E-442E-BC9F-43559439A4B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Web", "Accounting.Web\Accounting.Web.csproj", "{3A80EEE9-61BD-49AD-9975-0E11FEDECDC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80F216F1-9994-449D-8623-E5F76E881AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F216F1-9994-449D-8623-E5F76E881AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F216F1-9994-449D-8623-E5F76E881AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F216F1-9994-449D-8623-E5F76E881AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB116ED-25F1-4047-BFC0-893CED036913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB116ED-25F1-4047-BFC0-893CED036913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB116ED-25F1-4047-BFC0-893CED036913}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB116ED-25F1-4047-BFC0-893CED036913}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{88E103A1-8C9E-442E-BC9F-43559439A4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88E103A1-8C9E-442E-BC9F-43559439A4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88E103A1-8C9E-442E-BC9F-43559439A4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88E103A1-8C9E-442E-BC9F-43559439A4B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A80EEE9-61BD-49AD-9975-0E11FEDECDC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A80EEE9-61BD-49AD-9975-0E11FEDECDC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A80EEE9-61BD-49AD-9975-0E11FEDECDC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A80EEE9-61BD-49AD-9975-0E11FEDECDC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2EB116ED-25F1-4047-BFC0-893CED036913} = {D0E3936A-3F39-4E3A-B606-DF7FFB0911F8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F01B896A-35BB-4CA2-B70F-20B2918C2F85}
+	EndGlobalSection
+EndGlobal

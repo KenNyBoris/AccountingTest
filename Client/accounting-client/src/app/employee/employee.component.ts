@@ -44,7 +44,7 @@ export class EmployeeComponent implements OnInit {
         return;
       }
       this.employeeService.create(response).subscribe(employeeId => {
-        this.ngOnInit();
+        this.getEmployees();
       })
     })
   }

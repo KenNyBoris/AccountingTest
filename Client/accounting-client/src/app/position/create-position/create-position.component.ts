@@ -28,7 +28,7 @@ export class CreatePositionComponent implements OnInit {
     })
   }
 
-  private get getPositionName() { return this.createPositionForm.controls.positionName.value; }
+  private get getPositionNameControl() { return this.createPositionForm.controls.positionName; }
 
   public cancel(): void {
     this.dialogRef.close();
@@ -39,7 +39,7 @@ export class CreatePositionComponent implements OnInit {
       return;
     }
     
-    this.positionModel.name = this.getPositionName;
+    this.positionModel.name = this.getPositionNameControl.value;
     this.dialogRef.close(this.positionModel);
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatTable } from '@angular/material/table';
 import { EmployeeService } from '../services/employee.service';
-import { GetAllEmployeesModel } from '../models/employee/get-all-employees.model';
+import { GetAllEmployeeModel } from '../models/employee/get-all-employees.model';
 import { MatDialogRef } from '@angular/material/dialog/dialog-ref';
 import { CreateEmployeePopUpComponent } from './create-employee-pop-up/create-employee-pop-up.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,7 +15,7 @@ import { PositionService } from '../services/position.service';
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit {
-  public employees: GetAllEmployeesModel[];
+  public employees: GetAllEmployeeModel[];
   columnsToDisplay = ['position', 'name', 'salary', 'appointmentDate', 'dismissalDate'];
 
   constructor(private employeeService: EmployeeService,

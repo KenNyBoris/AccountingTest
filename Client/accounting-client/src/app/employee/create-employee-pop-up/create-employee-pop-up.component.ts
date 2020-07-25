@@ -46,8 +46,8 @@ export class CreateEmployeePopUpComponent implements OnInit {
       lastName: new FormControl(this.employeeModel.lastName, Validators.required),
       position: new FormControl('', Validators.required),
       salary: new FormControl(this.employeeModel.salary, [Validators.required, Validators.min(199)]),
-      appointmentDate: new FormControl(this.employeeModel.appointmentDate, Validators.required),
-      dismissalDate: new FormControl(this.employeeModel.dismissalDate)
+      appointmentDate: new FormControl(this.employeeModel.position.appointmentDate, Validators.required),
+      dismissalDate: new FormControl(this.employeeModel.position.dismissalDate)
     });
   }
 
@@ -58,12 +58,12 @@ export class CreateEmployeePopUpComponent implements OnInit {
     if(this.getDismissalDateControl.value && this.getDismissalDateControl.value < this.getAppointmentDateControl.value){
       return;
     }
-    this.employeeModel.appointmentDate = this.getAppointmentDateControl.value;
+    this.employeeModel.position.appointmentDate = this.getAppointmentDateControl.value;
     this.employeeModel.firstName = this.getFirstNameControl.value;
     this.employeeModel.lastName = this.getLastNameControl.value;
-    this.employeeModel.positionId = this.getPositionIdControl.value;
+    this.employeeModel.position.id = this.getPositionIdControl.value.id;
     this.employeeModel.salary = this.getSalaryControl.value;
-    this.employeeModel.dismissalDate = this.getDismissalDateControl.value;
+    this.employeeModel.position.dismissalDate = this.getDismissalDateControl.value;
     this.dialogRef.close(this.employeeModel);
   }
 

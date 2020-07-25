@@ -35,15 +35,6 @@ namespace Accounting.Domain.Repositories
             return await _accountingContext.Positions.FirstOrDefaultAsync(s => s.Id.Equals(Guid.Parse(positionId)));
         }
 
-        public async Task<Position> GetEmloyeeCurrentPositionAsync(Guid employeeId)
-        {
-            var positionEmployeeEntity = await _accountingContext.PositionEmployees
-                .FirstOrDefaultAsync(s => s.EmployeeId.Equals(employeeId) 
-                                          && s.Employee.DismissalDate != null);
-            var position = await _accountingContext.Positions
-                .FirstOrDefaultAsync(s => s.Id.Equals(positionEmployeeEntity.PositionId));
-            return position;
-        }
 
         public async Task<string> InsertAsync(Position position)
         {

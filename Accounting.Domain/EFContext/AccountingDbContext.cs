@@ -44,7 +44,7 @@ namespace Accounting.Domain.EFContext
                 Id = Guid.NewGuid(),
                 FirstName = "Boris",
                 LastName = "Boguslavskiy",
-                AppointmentDate = DateTime.Now.AddYears(-1),
+                
                 Salary = 5000
             };
             var middleEmployee = new Employee
@@ -52,7 +52,6 @@ namespace Accounting.Domain.EFContext
                 Id = Guid.NewGuid(),
                 FirstName = "Ivan",
                 LastName = "Ivanovich",
-                AppointmentDate = DateTime.Now.AddYears(-2),
                 Salary = 2000
             };
             var seniorEmployee = new Employee
@@ -60,9 +59,7 @@ namespace Accounting.Domain.EFContext
                 Id = Guid.NewGuid(),
                 FirstName = "Anton",
                 LastName = "Antonovich",
-                AppointmentDate = DateTime.Now.AddYears(-6),
                 Salary = 9999,
-                DismissalDate = DateTime.Now.AddMonths(-2)
             };
             modelBuilder.Entity<Position>().HasData(juniorPosition, middlePosition, seniorPosition);
             modelBuilder.Entity<Employee>().HasData(juniorEmployee, middleEmployee, seniorEmployee);
@@ -71,20 +68,42 @@ namespace Accounting.Domain.EFContext
                 {
                     Id = Guid.NewGuid(),
                     EmployeeId = juniorEmployee.Id,
+                    AppointmentDate = DateTime.Now.AddYears(-1),
                     PositionId = juniorPosition.Id
                 },
                 new PositionEmployee
                 {
                     Id = Guid.NewGuid(),
                     PositionId = middlePosition.Id,
+                    AppointmentDate = DateTime.Now.AddYears(-2),
                     EmployeeId = middleEmployee.Id
                 },
                 new PositionEmployee
                 {
                     Id = Guid.NewGuid(),
                     EmployeeId = seniorEmployee.Id,
-                    PositionId = seniorPosition.Id
-                });
+                    AppointmentDate = DateTime.Now.AddYears(-6),
+                    DismissalDate = DateTime.Now.AddYears(-3),
+
+                    PositionId = juniorPosition.Id
+                },
+                new PositionEmployee
+                {
+                    Id = Guid.NewGuid(),
+                    EmployeeId = seniorEmployee.Id,
+                    AppointmentDate = DateTime.Now.AddYears(-3),
+                    DismissalDate = DateTime.Now.AddYears(-1),
+                    PositionId = middlePosition.Id
+                },
+                new PositionEmployee
+                {
+                    Id = Guid.NewGuid(),
+                    EmployeeId = seniorEmployee.Id,
+                    PositionId = seniorPosition.Id,
+                    AppointmentDate = DateTime.Now.AddYears(-1),
+
+                }
+             );
         }
     }
 }

@@ -28,7 +28,8 @@ namespace Accounting.Domain.Repositories
 
         public async Task<IEnumerable<Employee>> GetAllAsync()
         {
-            return await _accountingContext.Employees.Include(s => s.Positions).ThenInclude(s => s.Position).ToListAsync();
+            return await _accountingContext.Employees
+                .Include(s => s.Positions).ThenInclude(s => s.Position).ToListAsync();
         }
 
         public async Task<Employee> GetDetailsAsync(string id)

@@ -12,10 +12,6 @@ namespace Accounting.Domain.Entities
 
         public decimal Salary { get; set; }
 
-        public DateTime AppointmentDate { get; set; }
-
-        public DateTime? DismissalDate { get; set; }
-
         public virtual ICollection<PositionEmployee> Positions { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using Accounting.Domain.Abstract;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Accounting.BLL.ViewModels;
@@ -36,7 +37,9 @@ namespace Accounting.BLL.Services
             var positionEmpoyee = new PositionEmployee
             {
                 EmployeeId = employee.Id,
-                PositionId = Guid.Parse(createEmployeeViewModel.PositionId)
+                PositionId = Guid.Parse(createEmployeeViewModel.Position.Id),
+                AppointmentDate = createEmployeeViewModel.Position.AppointmentDate,
+                DismissalDate = createEmployeeViewModel.Position.DismissalDate
             };
                 await _positionEmployeeRepository
                 .InsertAsync(positionEmpoyee); 
@@ -49,9 +52,19 @@ namespace Accounting.BLL.Services
 
         public async Task<IEnumerable<GetAllEmployeeViewModel>> GetAllAsync()
         {
-            var employees = await _employeeRepository.GetAllAsync();
-            var result = _mapper.Map<IEnumerable<GetAllEmployeeViewModel>>(employees);
-            return result;
+            try
+            {
+                var employees = await _employeeRepository.GetAllAsync();
+
+                var result = _mapper.Map<IEnumerable<GetAllEmployeeViewModel>>(employees);
+                return result;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+         
         }
 
         public async Task<GetEmployeeDetailsViewModel> GetDetailsAsync(string id)

@@ -12,7 +12,7 @@ namespace Accounting.BLL.ViewModels.Employee
 
         public decimal Salary { get; set; }
 
-        public string PositionName { get; set; }
+        public string CurrentPositionName { get; set; }
         public DateTime AppointmentDate { get; set; }
 
         public DateTime? DismissalDate { get; set; }

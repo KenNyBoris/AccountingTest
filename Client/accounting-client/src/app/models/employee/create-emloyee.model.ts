@@ -2,13 +2,17 @@ export class CreateEmployeeModel {
     firstName: string;
     lastName: string;
     salary: number;
-    appointmentDate: string;
-    positionId: string;
-    dismissalDate?: string;
+    position: CreateEmployeePositionModelViewModel;
     constructor() {
         this.firstName = '';
         this.lastName = '';
-        this.positionId = '';
+        this.position = new CreateEmployeePositionModelViewModel();
         this.salary = 0;
     }
+}
+
+export class CreateEmployeePositionModelViewModel {
+    id: string;
+    appointmentDate: string;
+    dismissalDate?: string;
 }

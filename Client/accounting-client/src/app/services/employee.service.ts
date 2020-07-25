@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { GetAllEmployeesModel } from '../models/employee/get-all-employees.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GetAllEmployeeModel } from '../models/employee/get-all-employees.model';
+import { HttpClient } from '@angular/common/http';
 import { CreateEmployeeModel } from '../models/employee/create-emloyee.model';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class EmployeeService {
     return this.httpClient.post<void>(this.apiUrl + 'Employee/create', model);
   }
 
-  getAll(): Observable<GetAllEmployeesModel[]> {
-    return this.httpClient.get<GetAllEmployeesModel[]>(this.apiUrl + "Employee/get-all")
+  getAll(): Observable<GetAllEmployeeModel[]> {
+    return this.httpClient.get<GetAllEmployeeModel[]>(this.apiUrl + "Employee/get-all")
   }
 }

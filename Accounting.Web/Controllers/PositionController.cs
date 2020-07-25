@@ -34,7 +34,7 @@ namespace Accounting.Web.Controllers
         [ActionName("create")]
         public async Task<IActionResult> CreateAsync(CreatePositionViewModel model)
         {
-            var id = await _positionService.CreateAsync(model);
+            await _positionService.CreateAsync(model);
             return Ok();
         }
     }

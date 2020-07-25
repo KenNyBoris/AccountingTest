@@ -16,5 +16,8 @@ namespace Accounting.Domain.Entities
 
         [ForeignKey("EmployeeId")]
         public Employee Employee { get; set; }
+        public DateTime AppointmentDate { get; set; }
+
+        public DateTime? DismissalDate { get; set; }
     }
 }

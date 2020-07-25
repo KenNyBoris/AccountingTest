@@ -8,7 +8,6 @@ namespace Accounting.Domain.Abstract
 {
     public interface IPositionRepository : IBaseRepository<Position>
     {
-        Task<Position> GetEmloyeeCurrentPositionAsync(Guid employeeId);
         Task<string> InsertAsync(Position position);
         Task<Position> GetByIdAsync(string positionId);
     }

@@ -13,7 +13,14 @@ export class NotificationService {
   showSuccess(message: string): void {
     this.snackBar.open(message, null, {
       duration: 2500,
-      panelClass: 'text-success'
+      panelClass: 'bg-success'
+    });
+  }
+
+  showError(message: string): void {
+    this.snackBar.open(message, null, {
+      duration: 2500,
+      panelClass: 'bg-danger'
     });
   }
 }

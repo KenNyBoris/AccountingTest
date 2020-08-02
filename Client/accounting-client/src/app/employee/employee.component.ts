@@ -47,7 +47,7 @@ export class EmployeeComponent implements OnInit {
       }
       this.employeeService.create(response).subscribe(employeeId => {
         this.getEmployees();
-        this.notificationService.showSuccess('Employee was successfully created!');
+        this.notificationService.showSuccess('Employee was successfully added!');
       });
     });
   }
@@ -62,7 +62,7 @@ export class EmployeeComponent implements OnInit {
         return;
       }
       this.positionService.create(response).subscribe(() => {
-        this.notificationService.showSuccess('Position was successfully created!');
+        this.notificationService.showSuccess('Position was successfully added!');
       });
     });
   }

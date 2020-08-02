@@ -24,12 +24,9 @@ namespace Accounting.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-           
-            
             services.AddCors();
             services.AddMvc(option => option.EnableEndpointRouting = false);
             ConfigureDatabase(services);
-
         }
 
         private void ConfigureDatabase(IServiceCollection services)
@@ -57,9 +54,7 @@ namespace Accounting.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
             app.UseCors(builder => builder
                 .AllowAnyOrigin()
@@ -67,14 +62,11 @@ namespace Accounting.Web
                 .AllowAnyHeader());
 
             app.UseMvc();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
         }
     }
 }

@@ -1,11 +1,9 @@
-﻿using Accounting.Domain.Abstract;
-using Accounting.Domain.EFContext;
-using Accounting.Domain.Entities;
+﻿using Accounting.Domain.EFContext;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Accounting.Domain.Abstract.Sql.Entities;
+using Accounting.Domain.Abstract.Sql.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Accounting.Domain.Repositories
@@ -19,10 +17,9 @@ namespace Accounting.Domain.Repositories
             _accountingContext = accountingContext;
         }
 
-        public async Task<string> CreateAsync(Position item)
+        public async Task CreateAsync(Position item)
         {
             var result = await _accountingContext.AddAsync(item);
-            return result.Entity.Id.ToString();
         }
 
         public async Task<IEnumerable<Position>> GetAllAsync()
@@ -30,11 +27,11 @@ namespace Accounting.Domain.Repositories
             return await _accountingContext.Positions.ToListAsync();
         }
 
-        public async Task<Position> GetByIdAsync(string positionId)
-        {
-            return await _accountingContext.Positions.FirstOrDefaultAsync(s => s.Id.Equals(Guid.Parse(positionId)));
-        }
 
+        public async Task<Position> GetDetailsAsync(string id)
+        {
+            return await _accountingContext.Positions.FirstOrDefaultAsync(s => s.Id.Equals(Guid.Parse(id)));
+        }
 
         public async Task<string> InsertAsync(Position position)
         {

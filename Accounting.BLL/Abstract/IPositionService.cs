@@ -8,7 +8,7 @@ namespace Accounting.BLL.Abstract
 {
     public interface IPositionService
     {
-        Task<string> CreateAsync(CreatePositionViewModel positionModel);
+        Task CreateAsync(CreatePositionViewModel positionModel);
         Task<IEnumerable<GetAllPositionsViewModel>> GetAllAsync();
     }
 }

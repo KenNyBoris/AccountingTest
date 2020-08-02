@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Accounting.Domain.Entities
+namespace Accounting.Domain.Abstract.Sql.Entities
 {
     public class Employee : BaseEntity
     {
@@ -11,6 +11,7 @@ namespace Accounting.Domain.Entities
         public string LastName { get; set; }
 
         public decimal Salary { get; set; }
+
 
         public virtual ICollection<PositionEmployee> Positions { get; set; }
     }

@@ -8,21 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Accounting.BLL.ViewModels;
-using Accounting.Domain.Entities;
-using Accounting.Domain.Repositories;
+using Accounting.Domain.Abstract.Sql.Entities;
+using Accounting.Domain.Abstract.Sql.Interfaces;
 
-namespace Accounting.BLL.Services
+namespace Accounting.BLL.Services.Sql
 {
     public class EmployeeService : IEmployeeService
     {
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IMapper _mapper;
         private readonly IPositionRepository _positionRepository;
-        private readonly PositionEmployeeRepository _positionEmployeeRepository;
+        private readonly IPositionEmployeeRepository _positionEmployeeRepository;
 
         public EmployeeService(IEmployeeRepository employeeRepository,
             IPositionRepository positionRepository,
-            PositionEmployeeRepository positionEmployeeRepository,
+            IPositionEmployeeRepository positionEmployeeRepository,
             IMapper mapper)
         {
             _employeeRepository = employeeRepository;
@@ -30,7 +30,7 @@ namespace Accounting.BLL.Services
             _positionEmployeeRepository = positionEmployeeRepository;
             _mapper = mapper;
         }
-        public async Task<string> CreateAsync(CreateEmployeeViewModel createEmployeeViewModel)
+        public async Task CreateAsync(CreateEmployeeViewModel createEmployeeViewModel)
         {
             var employee = _mapper.Map<Employee>(createEmployeeViewModel);
             employee.Id = Guid.NewGuid();
@@ -41,30 +41,17 @@ namespace Accounting.BLL.Services
                 AppointmentDate = createEmployeeViewModel.Position.AppointmentDate,
                 DismissalDate = createEmployeeViewModel.Position.DismissalDate
             };
-                await _positionEmployeeRepository
-                .InsertAsync(positionEmpoyee); 
-            employee.Positions = new List<PositionEmployee>{positionEmpoyee};
-            var employeeId = await _employeeRepository.CreateAsync(employee);
-            
-
-            return employeeId;
+            await _positionEmployeeRepository
+                .InsertAsync(positionEmpoyee);
+            employee.Positions = new List<PositionEmployee> { positionEmpoyee };
+            await _employeeRepository.CreateAsync(employee);
         }
 
         public async Task<IEnumerable<GetAllEmployeeViewModel>> GetAllAsync()
         {
-            try
-            {
-                var employees = await _employeeRepository.GetAllAsync();
-
-                var result = _mapper.Map<IEnumerable<GetAllEmployeeViewModel>>(employees);
-                return result;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-         
+            var employees = await _employeeRepository.GetAllAsync();
+            var result = _mapper.Map<IEnumerable<GetAllEmployeeViewModel>>(employees);
+            return result;
         }
 
         public async Task<GetEmployeeDetailsViewModel> GetDetailsAsync(string id)

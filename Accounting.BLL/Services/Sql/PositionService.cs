@@ -1,15 +1,13 @@
 ﻿using Accounting.BLL.Abstract;
 using Accounting.BLL.ViewModels.Position;
-using Accounting.Domain.Abstract;
 using AutoMapper;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using Accounting.Domain.Entities;
+using Accounting.Domain.Abstract.Sql.Entities;
+using Accounting.Domain.Abstract.Sql.Interfaces;
 
-namespace Accounting.BLL.Services
+namespace Accounting.BLL.Services.Sql
 {
     public class PositionService : IPositionService
     {
@@ -21,11 +19,11 @@ namespace Accounting.BLL.Services
             _positionRepository = positionRepository;
             _mapper = mapper;
         }
-        public async Task<string> CreateAsync(CreatePositionViewModel positionModel)
+        public async Task CreateAsync(CreatePositionViewModel positionModel)
         {
             var position = _mapper.Map<Position>(positionModel);
-            var result = await _positionRepository.InsertAsync(position);
-            return result;
+            position.Id = Guid.NewGuid();
+            await _positionRepository.CreateAsync(position);
         }
 
         public async Task<IEnumerable<GetAllPositionsViewModel>> GetAllAsync()

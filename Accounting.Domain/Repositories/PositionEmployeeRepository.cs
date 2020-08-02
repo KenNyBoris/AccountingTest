@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Accounting.Domain.Abstract.Sql.Entities;
+using Accounting.Domain.Abstract.Sql.Interfaces;
 using Accounting.Domain.EFContext;
-using Accounting.Domain.Entities;
 
 namespace Accounting.Domain.Repositories
 {
-    public class PositionEmployeeRepository
+    public class PositionEmployeeRepository : IPositionEmployeeRepository
     {
         private readonly AccountingContext _accountingContext;
 

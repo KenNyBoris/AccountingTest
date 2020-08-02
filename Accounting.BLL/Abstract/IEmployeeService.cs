@@ -10,7 +10,7 @@ namespace Accounting.BLL.Abstract
     public interface IEmployeeService
     {
         Task<IEnumerable<GetAllEmployeeViewModel>> GetAllAsync();
-        Task<string> CreateAsync(CreateEmployeeViewModel createEmployeeViewModel);
+        Task CreateAsync(CreateEmployeeViewModel createEmployeeViewModel);
         Task<GetEmployeeDetailsViewModel> GetDetailsAsync(string id);
     }
 }

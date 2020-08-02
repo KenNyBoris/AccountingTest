@@ -1,11 +1,10 @@
 ﻿using Accounting.BLL.ViewModels.Employee;
-using Accounting.Domain.Entities;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Accounting.BLL.ViewModels.Position;
+using Accounting.Domain.Abstract.NoSql.Entities;
+using Employee = Accounting.Domain.Abstract.Sql.Entities.Employee;
+using Position = Accounting.Domain.Abstract.Sql.Entities.Position;
 
 namespace Accounting.BLL.Configurations
 {
@@ -30,9 +29,12 @@ namespace Accounting.BLL.Configurations
                         .FirstOrDefault(positionEmployee => positionEmployee.AppointmentDate == employee.Positions
                             .Max(m => m.AppointmentDate)).Position.Name));
             CreateMap<Employee, GetEmployeeDetailsViewModel>();
+           
             CreateMap<CreateEmployeeViewModel, Employee>();
             CreateMap<CreatePositionViewModel, Position>();
+
             CreateMap<Position, GetAllPositionsViewModel>();
+
         }
     }
 }

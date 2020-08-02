@@ -30,7 +30,7 @@ namespace Accounting.Web.Controllers
         [ActionName("create")]
         public async Task<IActionResult> CreateAsync(CreateEmployeeViewModel employeeModel)
         {
-            var employeeId = await _employeeService.CreateAsync(employeeModel);
+            await _employeeService.CreateAsync(employeeModel);
             return Ok();
         }
 

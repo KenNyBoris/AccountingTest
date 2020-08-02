@@ -9,18 +9,18 @@ import { CreatePositionModel } from '../models/position/create-position.model';
   providedIn: 'root'
 })
 export class PositionService {
- 
+
 
   private apiUrl: string = environment.apiUrl;
   constructor(private httpClient: HttpClient) {
   }
-  
+
   getAll(): Observable<GetAllPositionsModel[]> {
-    return this.httpClient.get<GetAllPositionsModel[]>(this.apiUrl + "Position/get-all")
+    return this.httpClient.get<GetAllPositionsModel[]>(this.apiUrl + 'Position/get-all');
   }
 
   create(model: CreatePositionModel): Observable<void> {
-    return this.httpClient.post<void>(this.apiUrl + "Position/create", model);
+    return this.httpClient.post<void>(this.apiUrl + 'Position/create', model);
   }
 }
 

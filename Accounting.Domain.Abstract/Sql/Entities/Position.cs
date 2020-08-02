@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Accounting.Domain.Entities
+namespace Accounting.Domain.Abstract.Sql.Entities
 {
     public class Position : BaseEntity
     {

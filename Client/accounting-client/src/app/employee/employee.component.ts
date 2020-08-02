@@ -19,8 +19,8 @@ export class EmployeeComponent implements OnInit {
   columnsToDisplay = ['position', 'name', 'salary', 'appointmentDate', 'dismissalDate'];
 
   constructor(private employeeService: EmployeeService,
-    private positionService: PositionService,
-    public dialog: MatDialog) {
+              private positionService: PositionService,
+              public dialog: MatDialog) {
     this.employees = [];
    }
 
@@ -31,11 +31,11 @@ export class EmployeeComponent implements OnInit {
   getEmployees(): void {
     this.employeeService.getAll().subscribe(response => {
       this.employees = response;
-    })
+    });
   }
 
   createEmployee(): void {
-    let dialogRef = this.dialog.open(CreateEmployeePopUpComponent, {
+    const dialogRef = this.dialog.open(CreateEmployeePopUpComponent, {
       height: '350px',
       width: '600px',
     });
@@ -45,12 +45,12 @@ export class EmployeeComponent implements OnInit {
       }
       this.employeeService.create(response).subscribe(employeeId => {
         this.getEmployees();
-      })
-    })
+      });
+    });
   }
 
   createPosition(): void {
-    let dialogRef = this.dialog.open(CreatePositionComponent, {
+    const dialogRef = this.dialog.open(CreatePositionComponent, {
       height: '200px',
       width: '300px',
     });
@@ -59,7 +59,7 @@ export class EmployeeComponent implements OnInit {
         return;
       }
       this.positionService.create(response).subscribe();
-    })
+    });
   }
 
 }

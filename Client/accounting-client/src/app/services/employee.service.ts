@@ -10,7 +10,7 @@ import { CreateEmployeeModel } from '../models/employee/create-emloyee.model';
 })
 
 export class EmployeeService {
-  
+
   private apiUrl: string = environment.apiUrl;
   constructor(private httpClient: HttpClient) {
   }
@@ -20,6 +20,6 @@ export class EmployeeService {
   }
 
   getAll(): Observable<GetAllEmployeeModel[]> {
-    return this.httpClient.get<GetAllEmployeeModel[]>(this.apiUrl + "Employee/get-all")
+    return this.httpClient.get<GetAllEmployeeModel[]>(this.apiUrl + 'Employee/get-all');
   }
 }

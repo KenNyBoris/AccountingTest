@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Accounting.Domain\Accounting.Domain.csproj" />
+    <ProjectReference Include="..\Accounting.NoSqlDomain\Accounting.NoSqlDomain.csproj" />
+    <ProjectReference Include="..\Accounting.Settings\Accounting.Settings.csproj" />
   </ItemGroup>
 
 </Project>

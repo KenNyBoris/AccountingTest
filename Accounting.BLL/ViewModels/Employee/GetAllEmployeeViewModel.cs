@@ -6,7 +6,7 @@ namespace Accounting.BLL.ViewModels.Employee
 {
     public class GetAllEmployeeViewModel
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 

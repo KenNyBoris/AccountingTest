@@ -1,11 +1,8 @@
-﻿using Accounting.Domain.Abstract;
+﻿using Accounting.Domain.Abstract.Sql.Entities;
+using Accounting.Domain.Abstract.Sql.Interfaces;
 using Accounting.Domain.EFContext;
-using Accounting.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Accounting.Domain.Repositories
@@ -19,11 +16,10 @@ namespace Accounting.Domain.Repositories
             _accountingContext = accountingContext;
         }
 
-        public async Task<string> CreateAsync(Employee employee)
+        public async Task CreateAsync(Employee employee)
         {
-            var result = await _accountingContext.Employees.AddAsync(employee);
+            await _accountingContext.Employees.AddAsync(employee);
             await _accountingContext.SaveChangesAsync();
-            return result.Entity.Id.ToString();
         }
 
         public async Task<IEnumerable<Employee>> GetAllAsync()

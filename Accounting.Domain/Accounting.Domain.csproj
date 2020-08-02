@@ -17,4 +17,9 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Accounting.Domain.Abstract\Accounting.Domain.Abstract.csproj" />
+    <ProjectReference Include="..\Accounting.Settings\Accounting.Settings.csproj" />
+  </ItemGroup>
+
 </Project>

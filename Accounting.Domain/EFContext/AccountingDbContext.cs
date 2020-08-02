@@ -1,8 +1,6 @@
-﻿using Accounting.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using Accounting.Domain.Abstract.Sql.Entities;
 
 namespace Accounting.Domain.EFContext
 {

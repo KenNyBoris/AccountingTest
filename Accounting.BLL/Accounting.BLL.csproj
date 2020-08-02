@@ -13,7 +13,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Accounting.Domain\Accounting.Domain.csproj" />
-    <ProjectReference Include="..\Accounting.NoSqlDomain\Accounting.NoSqlDomain.csproj" />
+    <ProjectReference Include="..\Accounting.MongoDomain\Accounting.MongoDomain.csproj" />
+    <ProjectReference Include="..\Accounting.NoSqlDomain\Accounting.MongoDomain.csproj" />
     <ProjectReference Include="..\Accounting.Settings\Accounting.Settings.csproj" />
   </ItemGroup>
 

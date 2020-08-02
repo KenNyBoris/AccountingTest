@@ -7,7 +7,7 @@ using Accounting.Settings.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
-namespace Accounting.NoSqlDomain.Repositories
+namespace Accounting.MongoDomain.Repositories
 {
     public class PositionMongoRepository : IPositionNoSqlRepository
     {

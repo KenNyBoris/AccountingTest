@@ -34,9 +34,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Web", "Accountin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Settings", "Accounting.Settings\Accounting.Settings.csproj", "{3592C902-6B10-4584-9F75-03048987021C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.NoSqlDomain", "Accounting.NoSqlDomain\Accounting.NoSqlDomain.csproj", "{883E49B2-A834-4878-AFDA-5A8864AEE208}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.Domain.Abstract", "Accounting.Domain.Abstract\Accounting.Domain.Abstract.csproj", "{00D96B4E-C38D-47EE-BE02-FBFC42ABBBB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Domain.Abstract", "Accounting.Domain.Abstract\Accounting.Domain.Abstract.csproj", "{00D96B4E-C38D-47EE-BE02-FBFC42ABBBB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounting.MongoDomain", "Accounting.MongoDomain\Accounting.MongoDomain.csproj", "{B78E2954-8DDC-46E4-BABA-B4DEEDE61946}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,14 +64,14 @@ Global
 		{3592C902-6B10-4584-9F75-03048987021C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3592C902-6B10-4584-9F75-03048987021C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3592C902-6B10-4584-9F75-03048987021C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{883E49B2-A834-4878-AFDA-5A8864AEE208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{883E49B2-A834-4878-AFDA-5A8864AEE208}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{883E49B2-A834-4878-AFDA-5A8864AEE208}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{883E49B2-A834-4878-AFDA-5A8864AEE208}.Release|Any CPU.Build.0 = Release|Any CPU
 		{00D96B4E-C38D-47EE-BE02-FBFC42ABBBB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{00D96B4E-C38D-47EE-BE02-FBFC42ABBBB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00D96B4E-C38D-47EE-BE02-FBFC42ABBBB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00D96B4E-C38D-47EE-BE02-FBFC42ABBBB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78E2954-8DDC-46E4-BABA-B4DEEDE61946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78E2954-8DDC-46E4-BABA-B4DEEDE61946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78E2954-8DDC-46E4-BABA-B4DEEDE61946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78E2954-8DDC-46E4-BABA-B4DEEDE61946}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

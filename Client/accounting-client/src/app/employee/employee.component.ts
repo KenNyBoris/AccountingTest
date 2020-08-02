@@ -8,6 +8,7 @@ import { CreateEmployeePopUpComponent } from './create-employee-pop-up/create-em
 import { MatDialog } from '@angular/material/dialog';
 import { CreatePositionComponent } from '../position/create-position/create-position.component';
 import { PositionService } from '../services/position.service';
+import {NotificationService} from '../services/notification.service';
 
 @Component({
   selector: 'app-employee',
@@ -20,6 +21,7 @@ export class EmployeeComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService,
               private positionService: PositionService,
+              private notificationService: NotificationService,
               public dialog: MatDialog) {
     this.employees = [];
    }
@@ -45,6 +47,7 @@ export class EmployeeComponent implements OnInit {
       }
       this.employeeService.create(response).subscribe(employeeId => {
         this.getEmployees();
+        this.notificationService.showSuccess('Employee was successfully created!');
       });
     });
   }
@@ -58,7 +61,9 @@ export class EmployeeComponent implements OnInit {
       if(!response) {
         return;
       }
-      this.positionService.create(response).subscribe();
+      this.positionService.create(response).subscribe(() => {
+        this.notificationService.showSuccess('Position was successfully created!');
+      });
     });
   }
 
